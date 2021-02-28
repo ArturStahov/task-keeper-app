@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import PublicRoute from './components/Route/PublicRoute';
 import PrivateRoute from './components/Route/PrivateRoute';
 
+import Table from './components/Table';
+
 export default function App() {
   return (
     <>
@@ -19,6 +21,7 @@ export default function App() {
         <Switch>
           <PublicRoute exact path="/" redirectTo="/table" restricted>
             <ViewAutherization />
+            <Table />
           </PublicRoute>
 
           <PublicRoute exact path="/signup" restricted>
@@ -26,9 +29,8 @@ export default function App() {
           </PublicRoute>
 
           <PrivateRoute path="/table" redirectTo="/">
-            <ViewTableEvents />
+            {/* <ViewTableEvents /> */}
           </PrivateRoute>
-
           <Route>
             <h2>404</h2>
           </Route>
