@@ -16,11 +16,16 @@ import {
   ButtonAdd,
 } from './StyledComponent';
 
-export default function Tables() {
+export default function Tables({ onOpenForm }) {
   const [active, setActive] = useState(false);
   const [idItem, setIdItem] = useState('');
 
   let classButtonAdd = 'button-add';
+
+  const handlerButtonOpenForm = () => {
+    onOpenForm();
+    console.log('click');
+  };
 
   return (
     <Wrapper>
@@ -46,13 +51,9 @@ export default function Tables() {
                   activated={`${day}${time}` === idItem && active}
                 >
                   <ButtonAdd
-                    onClick={() => {
-                      setActive(true);
-                      setIdItem(`${day}${time}`);
-                    }}
+                    onClick={handlerButtonOpenForm}
                     className={classButtonAdd}
                     type="button"
-                    activated={`${day}${time}` === idItem && active}
                   >
                     <FontAwesomeIcon
                       icon={faCalendarPlus}
