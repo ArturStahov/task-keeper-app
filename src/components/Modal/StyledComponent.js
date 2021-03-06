@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Modal = styled.div`
   padding: 20px;
-  width: 30%;
+  max-width: 400px;
   height: 50%;
   position: absolute;
   left: 0;
