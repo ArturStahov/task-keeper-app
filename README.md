@@ -8,11 +8,11 @@
 - react-hook-form;
 - redux-persist;
 - green scope (gsap);
-- firebase;
 - styled-components;
 - material-ui;
 - font awesome;
 - csstools/normalize;
+- axios;
 
 ### Summary:
 
