@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button } from '@material-ui/core';
 import { Form, useStyles } from './StyledComponent';
 // import * as notification from 'notification/ErrorNotification';
-// import { signUp } from 'redux/auth/auth-operation';
+import { signUp } from '../../../redux/user/user-operations';
 // import Spinner from '../../Spinner';
 // import { getLoadingAuth } from 'redux/selectors/spinner-selector';
 
@@ -11,21 +11,23 @@ export default function RegistrationForms() {
   const { control, handleSubmit, reset } = useForm();
   const classes = useStyles();
   const dispatch = useDispatch();
+
   // const isLoading = useSelector(getLoadingAuth);
 
   const onSubmit = ({ password, confirmPass, email, firstName, lastName }) => {
-    // if (password !== confirmPass) {
-    //     notification.errorNotification('Passwords are not the same! Try again!');
-    //     return;
-    // }
+    if (password !== confirmPass) {
+      // notification.errorNotification('Passwords are not the same! Try again!');
+      console.log('error pass');
+      return;
+    }
 
-    // const registrationObj = {
-    //     name: `${firstName} ${lastName}`,
-    //     password,
-    //     email,
-    // };
+    const formData = {
+      name: `${firstName} ${lastName}`,
+      password,
+      email,
+    };
     reset();
-    // dispatch(signUp(registrationObj));
+    dispatch(signUp(formData));
   };
 
   return (

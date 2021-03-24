@@ -4,8 +4,8 @@ axios.defaults.baseURL = ' https://task-keeper-api-v2.herokuapp.com';
 
 export const fetchLogin = ({ email, password }) => {
   return axios.post('/api/users/login', {
-    email: email,
-    password: password,
+    email,
+    password,
   });
 };
 
