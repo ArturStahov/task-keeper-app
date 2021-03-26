@@ -17,6 +17,7 @@ export const fetchRegistration = ({ email, password, name }) => {
   });
 };
 
+//dvd
 // export const fetchGetCurrentUser = () => {
 //     return axios.get('/users/current');
 // };
