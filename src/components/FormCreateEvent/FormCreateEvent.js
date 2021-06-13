@@ -7,7 +7,9 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Form, useStyles, Text } from './StyledComponent';
 
-export default function FormCreateEvent() {
+import { createEvent } from '../../redux/events/events-operations';
+
+export default function FormCreateEvent({ onClose }) {
   const { control, handleSubmit, reset } = useForm();
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -15,7 +17,9 @@ export default function FormCreateEvent() {
   const onSubmit = data => {
     // dispatch(LogIn(data));
     console.log(data);
+    dispatch(createEvent(data));
     reset();
+    onClose();
   };
 
   return (

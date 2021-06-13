@@ -34,7 +34,7 @@ export default function ViewTableEvents() {
       <Table onOpenForm={openModal} />
 
       <Modal onClose={closeModal} getRef={setModalRef}>
-        <FormCreateEvent />
+        <FormCreateEvent onClose={closeModal} />
       </Modal>
     </>
   );

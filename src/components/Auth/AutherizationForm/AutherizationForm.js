@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button } from '@material-ui/core';
 import { Form, useStyles, Text } from './StyledComponent';
-// import { LogIn } from 'redux/auth/auth-operation';
+import { logIn } from '../../../redux/user/user-operations';
 // import Spinner from '../../Spinner';
 // import { getLoadingAuth } from 'redux/selectors/spinner-selector';
 
@@ -16,7 +16,7 @@ export default function AuthorizationForms() {
   // console.log(isLoading);
 
   const onSubmit = data => {
-    // dispatch(LogIn(data));
+    dispatch(logIn(data));
     reset();
   };
 

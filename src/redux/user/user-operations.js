@@ -18,21 +18,22 @@ const addToken = {
 
 export const logIn = formData => async dispatch => {
   dispatch(action.logInRequest());
+
   try {
-    const result = await fetchRegistration(formData);
-    console.log('🚀 ~ file: user-operations.js ~ line 23 ~ data', result);
+    const result = await fetchLogin(formData);
+    console.log(result);
+
     const { avatar, email, name, id, token } = result.data.data;
     addToken.set(token);
 
-    //сдесь зделать запрос за юзером или переделать бек что бі отдал юзера
-    // const user = {
-    //   avatar,
-    //   email,
-    //   name,
-    //   id
-    // }
+    const user = {
+      avatar,
+      email,
+      name,
+      id,
+    };
 
-    // dispatch(action.logInSuccess(user))
+    dispatch(action.logInSuccess(user));
   } catch (error) {
     dispatch(action.logInError(error.message));
   }
